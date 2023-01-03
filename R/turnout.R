@@ -271,6 +271,9 @@ df_plot_int %>%
   coord_flip()
 dev.off()
 
+# How many democrats believe that Trump won in 2020? 37
+table(df$party, df$miselwin)
+
 # simulate effect on turnout
 # calculate propensity scores
 df$prop_score <- info_prop_scores(knowledge_var = "fraud_binary", 
@@ -325,7 +328,7 @@ df_fraud %>%
   aes(x = Party, y = value, color = Party) +
   geom_segment(aes(x=Party, xend=Party, y=0, yend=value), color="black") +
   geom_point(size=5) +
-  geom_text(aes(x=Party, y=ifelse(Party=="Democrat", -2.2, value + 0.3), label=value, colour = NULL), show.legend = FALSE) +
+  geom_text(aes(x=Party, y=ifelse(Party=="Democrat", -2.3, ifelse(Party=="Independent", -0.6, value + 0.3)), label=value, colour = NULL), show.legend = FALSE) +
   geom_hline(yintercept=0, color = "grey") +
   theme(legend.position="none") +
   labs(title = "Simulated difference in turnout if everyone agreed that\nelectoral fraud is an important issue",
