@@ -146,7 +146,7 @@ df %>%
   ylim(c(0,1)) +
   theme(legend.position="none") +
   labs(title = "Proportion of agreement by partisan affiliation",
-       subtitle = "Proportions weighted to approximate representativenss",
+       subtitle = "Proportions weighted to approximate representativeness",
        caption = "Data: ANES 2022 Pilot Study",
        x = "",
        y = "Proportion agreeing") +
